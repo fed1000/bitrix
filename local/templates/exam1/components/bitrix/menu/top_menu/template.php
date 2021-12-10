@@ -1,6 +1,8 @@
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
 <?if (!empty($arResult)):?>
+	<a href="" class="btn-menu btn-toggle"></a>
+                    <div class="menu popup-block">
 <ul >
 <li class="main-page">
         <a href="/">Главная</a>
@@ -12,13 +14,18 @@ foreach($arResult as $arItem):?>
 	<?if ($previousLevel && $arItem["DEPTH_LEVEL"] < $previousLevel):?>
 		<?=str_repeat("</ul></li>", ($previousLevel - $arItem["DEPTH_LEVEL"]));?>
 	<?endif?>
+	<?if(!empty($arItem["PARAMS"]["COLOR"])):?>
+		<?$colorMenu = $arItem["PARAMS"]["COLOR"];?>
+	<?else:?>
+		<?$colorMenu = "";?>
+	<?endif;?>
 
 	<?if ($arItem["IS_PARENT"]):?>
 
 		<?if ($arItem["DEPTH_LEVEL"] == 1):?>
 			<? //<Текст перед пунктами под-меню> ?>
 			
-			<li><a href="<?=$arItem["LINK"]?>" class="<?if ($arItem["SELECTED"]):?><?else:?><?endif?>"><?=$arItem["TEXT"]?></a>
+			<li><a href="<?=$arItem["LINK"]?>" class="<?=$colorMenu;?> <?if ($arItem["SELECTED"]):?><?else:?><?endif?>"><?=$arItem["TEXT"]?></a>
 				<ul>
 		<?else:?>
 			<li<?if ($arItem["SELECTED"]):?> class=""<?endif?>><a href="<?=$arItem["LINK"]?>" class=""><?=$arItem["TEXT"]?></a>
@@ -35,7 +42,7 @@ foreach($arResult as $arItem):?>
 		<?if ($arItem["PERMISSION"] > "D"):?>
 
 			<?if ($arItem["DEPTH_LEVEL"] == 1):?>
-				<li><a href="<?=$arItem["LINK"]?>" class="<?if ($arItem["SELECTED"]):?><?else:?><?endif?>"><?=$arItem["TEXT"]?></a></li>
+				<li><a href="<?=$arItem["LINK"]?>" class="<?=$colorMenu;?> <?if ($arItem["SELECTED"]):?><?else:?><?endif?>"><?=$arItem["TEXT"]?></a></li>
 			<?else:?>
 				<li<?if ($arItem["SELECTED"]):?> class=""<?endif?>><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
 			<?endif?>
@@ -61,5 +68,6 @@ foreach($arResult as $arItem):?>
 <?endif?>
 
 </ul>
-
+<a href="" class="btn-close"></a>
+                    </div>
 <?endif?>

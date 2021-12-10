@@ -95,8 +95,7 @@ $sCurrentH = date('H', time());
         <nav class="nav">
             <div class="inner-wrap">
                 <div class="menu-block popup-wrap">
-                    <a href="" class="btn-menu btn-toggle"></a>
-                    <div class="menu popup-block">
+                   
 							<?
 							$APPLICATION->IncludeComponent(
 								"bitrix:menu",
@@ -115,8 +114,7 @@ $sCurrentH = date('H', time());
 								)
 							);
 							?>
-                        <a href="" class="btn-close"></a>
-                    </div>
+                        
                     <div class="menu-overlay"></div>
                 </div>
             </div>
