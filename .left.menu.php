@@ -2,8 +2,8 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Компания", 
-		"company/", 
+		"Главная", 
+		"/", 
 		Array(), 
 		Array(), 
 		"" 

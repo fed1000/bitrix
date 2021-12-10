@@ -1,5 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("menu_top_text", "Текст для");
 $APPLICATION->SetTitle("Вакансии");
 ?><?$APPLICATION->IncludeComponent("bitrix:furniture.vacancies", ".default", array(
 	"IBLOCK_TYPE" => "vacancies",
