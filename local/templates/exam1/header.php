@@ -95,7 +95,6 @@ $sCurrentH = date('H', time());
         <nav class="nav">
             <div class="inner-wrap">
                 <div class="menu-block popup-wrap">
-                   
 							<?
 							$APPLICATION->IncludeComponent(
 								"bitrix:menu",
@@ -114,7 +113,6 @@ $sCurrentH = date('H', time());
 								)
 							);
 							?>
-                        
                     <div class="menu-overlay"></div>
                 </div>
             </div>
@@ -122,13 +120,15 @@ $sCurrentH = date('H', time());
         <!-- /nav -->
 <?if($APPLICATION->GetCurPage(false) !=="/"){?>
 		<!-- breadcrumbs -->
-        <div class="breadcrumbs-box">
-            <div class="inner-wrap">
-                <a href="">Главная</a>
-                <a href="">Мебель</a>
-                <span>Выставки и события</span>
-            </div>
-        </div>
+		<?$APPLICATION->IncludeComponent(
+			"bitrix:breadcrumb",
+			"hornav",
+			Array(
+				"PATH" => "",
+				"SITE_ID" => "s1",
+				"START_FROM" => "0"
+			)
+		);?>
 <?}?>
  	<!-- page -->
 	 <div class="page">
@@ -139,9 +139,9 @@ $sCurrentH = date('H', time());
                     <div class="cnt">
 						<?if($APPLICATION->GetCurPage(false) !="/"){?>
 							<header>
-								<h1>Заголовок страницы</h1>
+								<h1><? $APPLICATION->ShowTitle(false); ?></h1>
 							</header>
-							<p>Если вы используете базовую редакцию продукта - «Компания», то можете перейти на редакцию «Совместная работа», и ваш портал приобретет все возможности для осуществления горизонтальных коммуникаций и управлению Экстранетом.
+							<?/*<p>Если вы используете базовую редакцию продукта - «Компания», то можете перейти на редакцию «Совместная работа», и ваш портал приобретет все возможности для осуществления горизонтальных коммуникаций и управлению Экстранетом.
                             Вы сможете организовать внутри компании коллективную работу над проектами в рабочих группах, вести учет и планирование времени и событий, обмениваться сообщениями и почтой через портал, проводить внутри компании видеоконференции
                             и делать многое другое.</p>
                         <p>Можете сразу перейти с «младшей», базовой редакции на «Бизнес-процессы». После такого перехода ваш портал можно будет интегрировать с внешним сайтом, на портале добавятся возможности визуального проектирования бизнес-процессов
@@ -160,17 +160,14 @@ $sCurrentH = date('H', time());
                             </p>
                             <p><span class="att-text">При переходе вся информация на портале сохранится.</span> 
                                 <br>Вам не потребуется создавать сайт заново. С помощью технологии SiteUpdate вы получите новые модули продукта и установите их без помощи разработчиков.</p>
-                        </div>
+                        </div>*/?>
 						<?}?>
 						<?if($APPLICATION->GetCurPage(false) === '/'){?>
 						<p>«Мебельная компания» осуществляет производство мебели на высококлассном оборудовании с применением минимальной доли ручного труда, что позволяет обеспечить высокое качество нашей продукции. Налажен производственный процесс как массового и индивидуального характера, что с одной стороны позволяет обеспечить постоянную номенклатуру изделий и индивидуальный подход – с другой.
 						</p>
-                    
-                           
 						<!-- index column -->
 		                <div class="cnt-section index-column">
 		                    <div class="col-wrap">
-		
 		                        <!-- main actions box -->
 		                        <div class="column main-actions-box">
 		                        	<div class="title-block">
@@ -273,11 +270,9 @@ $sCurrentH = date('H', time());
 		                            <a href="" class="btn-next">Все новости</a>
 		                        </div>
 		                        <!-- /main news box -->
-		
 		                    </div>
 		                </div>
 		                <!-- /index column -->
-		                
 	                    <!-- afisha box -->
 		                <div class="cnt-section afisha-box">
 		                    <div class="section-title-block">
@@ -313,104 +308,5 @@ $sCurrentH = date('H', time());
 		                    </div>
 		                </div>
 		                <!-- /afisha box -->
-                                
-						<?}?>                      
-                    </div>
-                </div>
-                <!-- /content -->
-				
-                <!-- side -->
-                <div class="side">
-					<?if($APPLICATION->GetCurPage(false) !=="/"){?>
-						<!-- side menu -->
-							<?
-							$APPLICATION->IncludeComponent(
-								"bitrix:menu",
-								"left",
-								Array(
-									"ALLOW_MULTI_SELECT" => "N",
-									"CHILD_MENU_TYPE" => "left",
-									"DELAY" => "N",
-									"MAX_LEVEL" => "1",
-									"MENU_CACHE_GET_VARS" => array(""),
-									"MENU_CACHE_TIME" => "3600",
-									"MENU_CACHE_TYPE" => "A",
-									"MENU_CACHE_USE_GROUPS" => "Y",
-									"ROOT_MENU_TYPE" => "left",
-									"USE_EXT" => "Y"
-								)
-							);
-							?>
-						<!-- /side menu -->
-					<?}?>
-                    <!-- side anonse -->
-                    <div class="side-block side-anonse">
-                        <div class="title-block"><span class="i i-title01"></span>Полезная информация!</div>
-                        <div class="item">
-                            <p>Клиенты предпочитают все больше эко-материалов.</p>
-                        </div>
-                    </div>
-                    <!-- /side anonse -->
-                    <!-- side wrap -->
-                    <div class="side-wrap">
-                        <div class="item-wrap">
-                            <!-- side action -->
-                            <div class="side-block side-action">
-                                <img src="<?=SITE_TEMPLATE_PATH?>/img/side-action-bg.jpg" alt="" class="bg">
-                                <div class="photo-block">
-                                    <img src="<?=SITE_TEMPLATE_PATH?>/img/side-action.jpg" alt="">
-                                </div>
-                                <div class="text-block">
-                                    <div class="title">Акция!</div>
-                                    <p>Мебельная полка всего за 560 <span class="r">a</span>
-                                    </p>
-                                </div>
-                                <a href="" class="btn-more">подробнее</a>
-                            </div>
-                            <!-- /side action -->
-                        </div>
-                                              
-                       <!-- footer rew slider box -->
-                       <div class="item-wrap">
-		                     <div class="rew-footer-carousel">
-								<div class="item">
-									<div class="side-block side-opin">
-										<div class="inner-block">
-											<div class="title">
-												<div class="photo-block">
-													<img src="<?=SITE_TEMPLATE_PATH?>/img/side-opin.jpg" alt="">
-												</div>
-												<div class="name-block"><a href="">Дмитрий Иванов</a></div>
-												<div class="pos-block">Генеральный директор,"Офис+"</div>
-											</div>
-											<div class="text-block">“В магзине предоставили потрясающий выбор
-												расцветок, а также, получил большую скидку по карте постоянного...</div>
-										</div>
-									</div>
-								</div>
-								<div class="item">
-									<div class="side-block side-opin">
-										<div class="inner-block">
-											<div class="title">
-												<div class="photo-block">
-													<img src="<?=SITE_TEMPLATE_PATH?>/img/side-opin.jpg" alt="">
-												</div>
-												<div class="name-block"><a href="">Дмитрий Иванов</a></div>
-												<div class="pos-block">Генеральный директор,"Офис+"</div>
-											</div>
-											<div class="text-block">“В магазине предоставили потрясающий выбор
-												расцветок, а также, получил большую скидку по карте постоянного...</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- / footer rew slider box --> 
-                    </div>
-                    <!-- /side wrap -->
-                </div>
-                <!-- /side -->
-            </div>
-            <!-- /content box -->
-        </div>
-        <!-- /page -->
+						<?}?>
+                   
