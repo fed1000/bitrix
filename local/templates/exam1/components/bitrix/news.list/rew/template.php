@@ -93,7 +93,7 @@ $this->setFrameMode(true);
 						</div>
 						<div class="text-block">
 							<?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arItem["PREVIEW_TEXT"]):?>
-								<?$obParser = new CTextParser;
+								<?$obParser = new CTextParser; //TruncateText($arItem["PREVIEW_TEXT"], $arParams["PREVIEW_TRUNCATE_LEN"])
 								if($arParams["PREVIEW_TRUNCATE_LEN"] > 0)
 								$arItem["PREVIEW_TEXT"] = $obParser->html_cut($arItem["PREVIEW_TEXT"], $arParams["PREVIEW_TRUNCATE_LEN"]);?>
 								<?echo $arItem["PREVIEW_TEXT"];?>
