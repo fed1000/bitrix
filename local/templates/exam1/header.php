@@ -309,4 +309,3 @@ $sCurrentH = date('H', time());
 		                </div>
 		                <!-- /afisha box -->
 						<?}?>
-                   
