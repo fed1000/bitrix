@@ -64,7 +64,15 @@ $sCurrentH = date('H', time());
                         <input type="text" placeholder="Поиск">
                         <button type="submit"></button>
                     </form>
-                    <nav class="menu-block">
+					
+					<?$APPLICATION->IncludeComponent("bitrix:system.auth.form","demo",Array(
+						"REGISTER_URL" => "/login/",
+						"FORGOT_PASSWORD_URL" => "",
+						"PROFILE_URL" => "user.php",
+						"SHOW_ERRORS" => "Y" 
+						)
+					);?>
+                    <!--<nav class="menu-block">
                         <ul>
                             <li class="att popup-wrap">
                                 <a id="hd_singin_but_open" href="" class="btn-toggle">Войти на сайт</a>
@@ -86,7 +94,7 @@ $sCurrentH = date('H', time());
                             <li><a href="">Зарегистрироваться</a>
                             </li>
                         </ul>
-                    </nav>
+                    </nav> -->
                 </div>
             </div>
         </header>
