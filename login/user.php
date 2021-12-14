@@ -1,5 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("color_menu_style", "green");
 $APPLICATION->SetTitle("Просмотр и редактирование профиля");
 ?><?
 global $USER;
