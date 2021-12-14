@@ -1,5 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("color_menu_style", "green");
 $APPLICATION->SetPageProperty("menu_top_text", "Текст страницы история");
 $APPLICATION->SetTitle("История");
 ?> 

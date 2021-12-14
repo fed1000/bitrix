@@ -53,6 +53,18 @@ $this->setFrameMode(true);
 		</div>
 		<div class="review-img-wrap">
 		<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
+			<?
+			$arPhotoSmall = CFile::ResizeImageGet(
+				$arItem["PREVIEW_PICTURE"]["ID"],
+				array(
+				   'width'=>68,
+				   'height'=>50
+				),
+				BX_RESIZE_IMAGE_EXACT,
+				true
+			);
+			$arItem["PREVIEW_PICTURE"]["SRC"] = $arPhotoSmall["src"];
+			?>
 			<?if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"])):?>
 				<a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img
 					class="preview_picture"
